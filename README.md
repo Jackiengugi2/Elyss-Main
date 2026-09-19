@@ -1,8 +1,8 @@
 # Elyss School — Parent Landing Page
 
-A single-page, parent-facing landing page for **Elyss School**, Kikuyu Road, Thogoto,
-Kikuyu, Kiambu County. Its job is to give a parent everything they need to decide to
-visit — and to make contacting a real person the easiest thing on the page.
+A single-page, conversion-focused landing page for **Elyss School**, Kikuyu Road, Thogoto,
+Kikuyu, Kiambu County. Built as a funnel, not a brochure: it answers the four questions a
+parent actually has, then asks for one thing — a visit.
 
 Static HTML/CSS/JS. No build step, no dependencies, no framework.
 
@@ -22,27 +22,57 @@ python3 -m http.server 8080    # then visit http://localhost:8080
 
 ---
 
+## Funnel structure
+
+The page follows the Awareness → Consideration → Conversion model in the CTA & Funnel
+Guide. Eight sections, ~580 words of visible copy, one repeated call to action.
+
+| # | Section | Funnel stage | Job |
+|---|---|---|---|
+| 1 | Hero | Awareness | One promise, two buttons, a reassurance line |
+| 2 | Trust bar | Awareness | Three facts that qualify the school in 5 seconds |
+| 3 | What parents ask us first | **Consideration** | Kill the four objections: CBE, fees, transport, "can I see it?" |
+| 4 | What your child gets | **Consideration** | Three benefits a parent notices at home |
+| 5 | Come and see it for yourself | **Conversion** | The visit, framed as the low-risk next step |
+| 6 | Three steps | **Conversion** | Remove "what happens next?" friction |
+| 7 | Quick answers | Consideration | Four residual objections, collapsed |
+| 8 | Book your visit | **Conversion** | Four-field form |
+
+Every section routes back to **0711 650 405**. The sticky Call / WhatsApp bar is always
+on screen on phones.
+
+### Copy rules applied
+
+- Short sentences, everyday words — written to be read on a phone, quickly.
+- Questions phrased the way parents say them (*"Is it really CBE?"*, *"How much are the fees?"*).
+- Benefits, not features: *"Your child learns to work out sums in their head"* rather than
+  *"Abacus and mental maths programme."*
+- Risk removed at every CTA: **free visit · no obligation · nothing to pay to enquire ·
+  we reply the same day**.
+- One primary action throughout: **book a visit**. Not "learn more", not "explore".
+
+---
+
 ## Where the content came from
 
 | Source document | What it supplied |
 |---|---|
-| `Elyss_School_-_International_Campus_E-Pamphlet.html` | Visual system: Deep Navy `#0F2C59`, Soft Gold `#D4AF37`, Teal `#00A896`, ink `#2B2D42`, paper `#F8F9FA`; the four-step admissions flow; section structure |
-| `Elyss_FAQs.docx` | Contact details, the priority FAQs and their approved answers, verbatim |
-| `Elyss_Keyword_Automations.docx` | Transport/NTSA wording, location and maps pin, socials, keyword-aligned copy |
-| `Elyss_School_October_2026_Content_Calendar.xlsx` | Campus split (Thogoto / Lusigetti), Abacus, Creative Art, JSS transition, Open Day, and the brand voice |
-| `Inquiry_Follow-Up_and_Tracking_Guide.docx` | The inquiry form fields — they map 1:1 onto the Inquiry Tracker columns |
+| `Elyss_School_-_International_Campus_E-Pamphlet.html` | Visual system: Deep Navy `#0F2C59`, Soft Gold `#D4AF37`, Teal `#00A896`, type hierarchy |
+| `Elyss_FAQs.docx` | Contact details and the priority FAQ answers (simplified in tone, same substance) |
+| `Elyss_Keyword_Automations.docx` | Transport/NTSA wording, location and maps pin, socials |
+| `Elyss_School_October_2026_Content_Calendar.xlsx` | Funnel model and CTA guide, campus split, Abacus, practical work, Open Day |
+| `Inquiry_Follow-Up_and_Tracking_Guide.docx` | Form fields, mapped onto the Inquiry Tracker |
 
 ### ⚠️ Important note on the e-pamphlet
 
 The e-pamphlet describes a generic international school with **placeholder details that
 are not Elyss's**: a US phone number (`+1 (555) 019-2831`), a `.edu` domain, an
-Olympic-size pool, a Duke of Edinburgh scheme, and a "98% first-choice university
-placement rate."
+Olympic-size pool, and a "98% first-choice university placement rate."
 
-**None of that was used on this page.** Every fact, figure and contact detail here
-comes from the three working documents, which describe the real school: a Christian
-CBE learning centre, Playgroup–Grade 6 plus Junior School, phone `0711 650 405`.
-Only the colour palette, type hierarchy and layout logic were carried across.
+**None of that is on this page.** Every fact and contact comes from the three working
+documents, which describe the real school: a Christian CBE learning centre,
+Playgroup–Grade 6 plus Junior School, phone `0711 650 405`. Only the colour palette and
+type hierarchy carried across.
 
 ---
 
@@ -52,39 +82,31 @@ Only the colour palette, type hierarchy and layout logic were carried across.
 - **Email:** info@elyssschool.co.ke
 - **Location:** Kikuyu Road, Thogoto, Kikuyu, Kiambu County
 - **Maps pin:** https://maps.app.goo.gl/hpA1GRRHoaXCGrRq8?g_st=aw
-- **Facebook:** https://www.facebook.com/elyss.school
-- **Instagram:** https://www.instagram.com/elyss.school
-- **Campuses:** Thogoto (Main — Kindergarten, Primary, JSS) · Lusigetti (International — Kindergarten, Open Day)
-- **Curriculum:** Kenya CBE/CBC, Playgroup to Grade 6, plus JSS Grades 7–9 at Thogoto
+- **Facebook:** https://www.facebook.com/elyss.school · **Instagram:** https://www.instagram.com/elyss.school
+- **Campuses:** Thogoto · Lusigetti
+- **Curriculum:** Kenya CBE, Playgroup to Grade 6, plus Junior School at Thogoto
 - **Transport:** NTSA-approved vehicles, certified drivers, route-based planning
 
 ---
 
 ## ✅ Confirm with the school before publishing
 
-These are the gaps the source documents themselves left blank or flagged. Nothing was
-invented to fill them — each is either omitted from the page or marked in the HTML.
+Gaps the source documents themselves left blank or flagged. Nothing was invented to fill
+them — each is either omitted from the page or marked in the HTML.
 
-1. **Open Day dates.** The announcement bar shows *19–30 October 2026*. The planning
-   sheet calls this a **recommendation built around the national exam calendar**, not a
-   committed date. Confirm, change, or delete the bar (`<div class="announce">` in
-   `index.html`). Note it also proposes closing Tue 20 Oct (Mashujaa Day).
-2. **Campus naming.** The calendar flags an assumption: Thogoto = "Main Campus",
-   Lusigetti = "International Campus". Confirm this isn't reversed.
-3. **Lusigetti street address / map pin.** Not in any document. The Lusigetti card
-   currently links to the inquiry form instead of Maps.
-4. **Fee structure, M-Pesa Paybill/Till, office hours, next intake dates.** All blank in
-   the source docs. The page deliberately follows the school's own approved line —
-   *"share your child's age or class and we'll send a clear breakdown"* — rather than
-   publishing numbers. Fee figures should stay off the page anyway while running Meta
-   ads, per the ad-approval note in the CTA & Funnel Guide.
-5. **Grades currently admitting.** The docs say "Playgroup to Grade 6 per current site
-   listing — confirm active classes/intake", while the content calendar markets JSS. The
-   page presents both; confirm which classes have live intake.
-6. **Second phone line** — blank in the docs, so only one number appears.
-7. **Photos.** Three slots are marked in the HTML (`PHOTO SLOT 1/2/3`). They render as
-   styled placeholders naming the shot needed. Replace each `<figure class="photo">`
-   with a real `<img>` — see below.
+1. **Open Day dates.** The announcement bar shows *19–30 October*. The planning sheet
+   calls this a **recommendation**, not a committed date. Confirm, edit, or delete the bar
+   (`<div class="announce">`).
+2. **Campus naming.** The calendar flags an assumption that Thogoto is the main campus and
+   Lusigetti the international one. Confirm it isn't reversed.
+3. **Fees, M-Pesa, office hours, intake dates.** Blank in the source docs. The page uses
+   the school's approved line — *"tell us the class and we'll send a clear breakdown"* —
+   rather than publishing numbers. Keeping fee figures off the page also matches the
+   Meta ad-approval note in the CTA & Funnel Guide.
+4. **Which classes have live intake.** Docs say Playgroup–Grade 6; the calendar markets
+   Junior School. The page presents both.
+5. **Photos.** Two slots, marked `PHOTO SLOT 1/2` in the HTML, render as labelled
+   placeholders. See below.
 
 ---
 
@@ -92,81 +114,76 @@ invented to fill them — each is either omitted from the page or marked in the 
 
 ```html
 <!-- before -->
-<figure class="photo photo--hero" data-photo="Hero photo — learners in a Thogoto classroom">
-  <figcaption>Learners at work, Thogoto Campus</figcaption>
-</figure>
+<figure class="photo photo--hero" data-photo="Photo — learners in class at Thogoto"></figure>
 
 <!-- after -->
 <figure class="photo photo--hero">
-  <img src="assets/img/thogoto-classroom.jpg" alt="Elyss learners working together in a Thogoto classroom">
+  <img src="assets/img/thogoto-class.jpg" alt="Elyss learners working together in class">
 </figure>
 ```
 
-Add `.photo img { width:100%; height:100%; object-fit:cover; }` when you do, and drop
-the `data-photo` attribute so the placeholder label disappears. Also point
-`og:image` in `<head>` at a real photo (1200×630) for link previews.
+Add `.photo img { width:100%; height:100%; object-fit:cover; }` and drop `data-photo` so
+the placeholder label disappears. Also point `og:image` in `<head>` at a real photo
+(1200×630) for WhatsApp and Facebook link previews — this matters when the page is shared
+into parent groups.
 
 Photo/video consent from families is on the Open Day preparation checklist — worth
-settling before any Open Day images go up.
+settling before any images go up.
 
 ---
 
-## The inquiry form
+## The form — four fields on purpose
 
-By default the form has **no backend**. On submit it validates, then opens WhatsApp
-pre-filled with the parent's details addressed to 0711 650 405 — which matches how the
-school already works, since WhatsApp Business is the primary FAQ channel.
+Every extra field costs conversions, so the form asks only what the team needs to make
+the first call:
 
-Fields map directly onto the Inquiry Tracker columns from the Follow-Up Guide, including
-the two additions that guide recommends adding to every tracker:
-
-| Form field | Tracker column |
+| Field | Tracker column |
 |---|---|
 | Your name | Name |
-| Phone / WhatsApp, Email | Email / Phone |
-| Child's age or current class | Grade Level |
-| Campus of interest | *(new — campus preference, per the CTA & Funnel Guide)* |
-| Preferred start | Preferred Start |
-| Transport needed | Fees Notes / transport route |
+| Phone or WhatsApp number | Email / Phone |
+| Your child's age or class | Grade Level |
+| Which campus? | *(campus preference, per the CTA & Funnel Guide)* |
 | — | **Source** = this landing page *(recommended addition)* |
 | — | **Date Logged** = submission date *(recommended addition)* |
 
-### Capturing leads directly instead
+Email, preferred start, transport and free-text message were dropped from the form —
+they're better asked on the follow-up call, where an admissions person is already talking
+to the parent.
 
-Set `data-endpoint` on the form and it POSTs JSON instead of opening WhatsApp:
+With no backend, submitting validates the fields then opens WhatsApp pre-filled to
+0711 650 405 — matching how the school already works, since WhatsApp Business is the
+primary channel.
+
+### Capturing leads directly instead
 
 ```html
 <form class="form" id="inquiryForm" data-endpoint="https://formspree.io/f/XXXXXXX" novalidate>
 ```
 
-Works with Formspree, Netlify Forms (via a function), Google Apps Script, or any
-endpoint accepting `application/json`. On failure it falls back to telling the parent to
-call 0711 650 405 — a parent is never left without a way to reach a real person, per the
-FAQ brief.
+Works with Formspree, Netlify Forms, Google Apps Script, or any endpoint accepting
+`application/json`. On failure it tells the parent to call 0711 650 405 — a parent is
+never left without a way to reach a real person.
 
-**Per-stage follow-up still applies:** log same-day, contact within 24 hours, share the
-tracker update back within 24–48 hours (Follow-Up Guide, Steps 1–3).
+**Follow-up still applies:** log same-day, contact within 24 hours, share the tracker
+update back within 24–48 hours (Follow-Up Guide, Steps 1–3).
 
 ---
 
 ## Built-in behaviour
 
-- Sticky header, mobile menu, and a permanent Call / WhatsApp bar on small screens
-- FAQ accordion (one panel open at a time, full keyboard and screen-reader support)
-- Client-side validation including Kenyan mobile format (`07XX`, `01XX`, `+254…`)
-- Honeypot field against bot submissions
-- Scroll-reveal animations, disabled under `prefers-reduced-motion`
+- Sticky header, mobile dropdown nav, permanent Call / WhatsApp bar on phones
+- Accessible FAQ accordion (one panel at a time, full keyboard support)
+- Kenyan mobile validation (`07XX`, `01XX`, `+254…`) with plain-language errors
+- Honeypot field against bots
+- Scroll reveals with a safety net so content can never stay hidden
+- Reduced-motion and print stylesheets
 - Semantic landmarks, skip link, visible focus rings, `aria-live` form status
-- Print stylesheet — the page prints cleanly as a handout
-- Every section routes back to 0711 650 405
 
 ## Keyword alignment
 
-Section IDs and copy are aligned with the Meta keyword automations so an ad, an
-auto-reply and this page use the same language: `#admissions` (admission, intake, join,
-enrol), `#transport` (transport, bus, van, pickup), `#learning` (CBC, CBE, curriculum,
-abacus, creative art), `#faq` (fees, bei, how much), `#inquire` (visit, tour,
-appointment), `#campuses` (location, directions, Thogoto, Lusigetti).
+Section IDs match the Meta keyword automations so ad, auto-reply and page use the same
+words: `#questions` (fees, bei, transport, CBC/CBE), `#offer` (abacus, creative art),
+`#visit` (visit, tour, openday), `#join` (admission, intake, enrol), `#book` (register).
 
 ---
 

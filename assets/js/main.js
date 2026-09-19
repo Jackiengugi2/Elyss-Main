@@ -89,7 +89,7 @@
   /* ---------- Scroll reveal ---------- */
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !reducedMotion) {
-    var targets = document.querySelectorAll('.card, .stage, .campus, .step, .band__list li, .section__head');
+    var targets = document.querySelectorAll('.qa__item, .card, .step, .section__head, .ticks li');
     Array.prototype.forEach.call(targets, function (el) { el.classList.add('reveal'); });
 
     var show = function (el) {
@@ -183,9 +183,9 @@
   var validate = function () {
     var ok = true;
     var required = [
-      { el: form.parentName,  msg: 'Please tell us your name.' },
-      { el: form.phone,       msg: 'We need a phone number to reply.' },
-      { el: form.childClass,  msg: "Your child's age or class helps us answer accurately." }
+      { el: form.parentName, msg: 'Please add your name.' },
+      { el: form.phone,      msg: 'We need a number to reply on.' },
+      { el: form.childClass, msg: "Please add your child's age or class." }
     ];
 
     required.forEach(function (item) {
@@ -197,16 +197,9 @@
       }
     });
 
-    if (ok && form.phone && !isValidPhone(form.phone.value)) {
-      showError(form.phone, 'Please enter a valid Kenyan number, e.g. 0711 650 405.');
+    if (ok && !isValidPhone(form.phone.value)) {
+      showError(form.phone, 'Please check the number, e.g. 0711 650 405.');
       ok = false;
-    }
-
-    if (form.email && form.email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.value.trim())) {
-      showError(form.email, 'That email address does not look right.');
-      ok = false;
-    } else if (form.email) {
-      clearError(form.email);
     }
 
     return ok;
@@ -216,29 +209,20 @@
     return {
       parentName: form.parentName.value.trim(),
       phone:      form.phone.value.trim(),
-      email:      form.email.value.trim(),
       childClass: form.childClass.value.trim(),
-      campus:     form.campus.value,
-      startTerm:  form.startTerm.value.trim(),
-      transport:  form.transport.value,
-      message:    form.message.value.trim()
+      campus:     form.campus.value
     };
   };
 
   var buildWhatsAppText = function (d) {
-    var lines = [
-      'Hello Elyss School, I would like more information.',
+    return [
+      'Hello Elyss School, I would like to book a visit.',
       '',
-      'Parent: ' + d.parentName,
-      'Phone: ' + d.phone
-    ];
-    if (d.email)     lines.push('Email: ' + d.email);
-    lines.push('Child age / class: ' + d.childClass);
-    lines.push('Campus: ' + d.campus);
-    if (d.startTerm) lines.push('Preferred start: ' + d.startTerm);
-    lines.push('Transport needed: ' + d.transport);
-    if (d.message)   lines.push('', 'Question: ' + d.message);
-    return lines.join('\n');
+      'Name: ' + d.parentName,
+      'Phone: ' + d.phone,
+      "Child's age / class: " + d.childClass,
+      'Campus: ' + d.campus
+    ].join('\n');
   };
 
   form.addEventListener('submit', function (e) {
@@ -246,13 +230,13 @@
 
     // Honeypot: silently accept and discard bot submissions.
     if (form.website && form.website.value) {
-      setStatus('Thank you — your inquiry has been sent.', 'ok');
+      setStatus('Thank you — we have your details.', 'ok');
       form.reset();
       return;
     }
 
     if (!validate()) {
-      setStatus('Please check the highlighted fields above.', 'err');
+      setStatus('Please check the boxes marked above.', 'err');
       var firstBad = form.querySelector('[aria-invalid="true"]');
       if (firstBad) firstBad.focus();
       return;
@@ -266,13 +250,13 @@
     if (!endpoint) {
       var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(buildWhatsAppText(data));
       window.open(url, '_blank', 'noopener');
-      setStatus('Opening WhatsApp with your details — press send and our team will reply.', 'ok');
+      setStatus('Opening WhatsApp with your details — just press send.', 'ok');
       return;
     }
 
     // Endpoint configured → post the inquiry directly.
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-    setStatus('Sending your inquiry…');
+    setStatus('Sending…');
 
     fetch(endpoint, {
       method: 'POST',
@@ -282,13 +266,13 @@
       .then(function (res) {
         if (!res.ok) throw new Error('Request failed: ' + res.status);
         form.reset();
-        setStatus('Thank you — we have your details and will be in touch within one working day.', 'ok');
+        setStatus('Thank you — we will call or WhatsApp you within one working day.', 'ok');
       })
       .catch(function () {
-        setStatus('Sorry, that did not go through. Please call or WhatsApp 0711 650 405 and we will help you directly.', 'err');
+        setStatus('That did not go through. Please call or WhatsApp 0711 650 405 and we will help you.', 'err');
       })
       .finally(function () {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send my inquiry'; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send my details'; }
       });
   });
 })();
