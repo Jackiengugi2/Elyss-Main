@@ -94,9 +94,8 @@ type hierarchy carried across.
 Gaps the source documents themselves left blank or flagged. Nothing was invented to fill
 them — each is either omitted from the page or marked in the HTML.
 
-1. **Open Day dates.** The announcement bar shows *19–30 October*. The planning sheet
-   calls this a **recommendation**, not a committed date. Confirm, edit, or delete the bar
-   (`<div class="announce">`).
+1. **Open Day date.** Confirmed: Saturday 14 November 2026. The bar links to the
+   registration site; remove it (`<div class="announce">`) after the event.
 2. **Campus naming.** The calendar flags an assumption that Thogoto is the main campus and
    Lusigetti the international one. Confirm it isn't reversed.
 3. **Fees, M-Pesa, office hours, intake dates.** Blank in the source docs. The page uses
@@ -177,8 +176,8 @@ update back within 24–48 hours (Follow-Up Guide, Steps 1–3).
   can't be reached they get the pre-filled WhatsApp link instead.
 - A seasonal **Mashujaa Day** section sits under the trust bar (artwork and logo from the
   school's poster, in `assets/img/`). Delete it after October.
-- The Open Day bar now reads 21–30 October, matching the Open Day registration site
-  (20 Oct is Mashujaa Day, a public holiday). Still to be confirmed by the school.
+- The Open Day bar reads **Saturday 14 November** (confirmed) and links to the Open Day
+  registration site, https://elyss-open-day.netlify.app.
 
 ## Built-in behaviour
 
