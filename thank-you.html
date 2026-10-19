@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank You · Elyss School</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1D3A70">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/landing.css">
+<style>
+  :root {
+    --brand: #1D3A70; --brand-ink: #152B55; --on-brand: #fff;
+    --accent: #EDB52D; --accent-ink: #0B7FB5; --on-accent: #152B55;
+    --soft: #EEF5FC; --hero-bg: linear-gradient(180deg, #EAF3FC 0, #F7FAFE 100%);
+    --text: #1b2540; --muted: #4a5675; --foot-bg: #1D3A70;
+    --brandbar: linear-gradient(90deg, #E31E24 0 20%, #F08A1D 20% 40%, #EDB52D 40% 60%, #6BB843 60% 80%, #0E9BD8 80%);
+    --font-head: "Montserrat", system-ui, sans-serif; --font-body: "Montserrat", system-ui, sans-serif;
+  }
+  .lp-hero h1 { font-weight: 900; color: var(--brand); }
+</style>
+<script>
+  window.LANDING = {
+    school: "Elyss School",
+    phone: "0711 650 405",
+    whatsapp: "254711650405",
+    waIntro: "Hello Elyss School, I have just sent my details on your website and would like to book a visit.",
+    formEndpoint: "",          // optional: also copy each enquiry to a Google Sheet / Privyr webhook (Netlify Forms already stores them)
+    metaPixelId: "",           // paste the school's Meta Pixel ID here (same ID on index.html and thank-you.html)
+    thankYouUrl: "thank-you.html",
+    campaign: "ELYSS_LEAD_LP_Admissions_PROS_OCT26"
+  };
+</script>
+</head>
+<body class="lp" data-page="thanks">
+<div class="brandbar" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brandmark" href="index.html" aria-label="Elyss School home">
+      <img src="images/logo.png" alt="Elyss School, For a Firm Foundation" width="66" height="48">
+      <span class="name">Elyss School<small>For a Firm Foundation</small></span>
+    </a>
+    <div class="top-actions"><a class="top-phone" data-contact="tel"></a></div>
+  </div>
+</header>
+
+<main>
+  <section class="lp-hero thanks-hero" style="padding-bottom:clamp(40px,6vw,64px)">
+    <div class="wrap">
+      <div class="tick-badge" aria-hidden="true" style="margin-inline:auto">✓</div>
+      <span class="eyebrow">Details received</span>
+      <h1>Thank you<span data-thanks-name></span>!</h1>
+      <p>Your details have reached Elyss School. Our admissions team will call or WhatsApp you within one working day to arrange your visit.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-wa" data-wa-continue href="#" target="_blank" rel="noopener">Chat on WhatsApp now</a>
+        <a class="btn btn-ghost" data-contact="tel">Call us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot-mini">
+  <p>Kikuyu Road, Thogoto, Kikuyu &middot; <a href="https://maps.app.goo.gl/hpA1GRRHoaXCGrRq8?g_st=aw" target="_blank" rel="noopener">Map</a></p><p><a href="mailto:info@elyssschool.co.ke">info@elyssschool.co.ke</a></p><p>Call / WhatsApp <a data-contact="tel"></a></p>
+  <p>© <span data-year></span> Elyss School &middot; For a Firm Foundation</p>
+</footer>
+
+<script src="assets/landing.js"></script>
+</body>
+</html>

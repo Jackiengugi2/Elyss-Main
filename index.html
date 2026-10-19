@@ -1,403 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elyss School — Book a Free Visit | CBE School in Thogoto, Kikuyu</title>
-<meta name="description" content="Elyss School, Thogoto. CBE learning from Playgroup to Grade 6, safe school transport, and teachers who know your child by name. Book a free visit — call or WhatsApp 0711 650 405.">
-<meta name="theme-color" content="#0F2C59">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 64 64&apos;%3E%3Crect width=&apos;64&apos; height=&apos;64&apos; rx=&apos;14&apos; fill=&apos;%230F2C59&apos;/%3E%3Ctext x=&apos;32&apos; y=&apos;45&apos; font-family=&apos;Georgia,serif&apos; font-size=&apos;38&apos; font-weight=&apos;700&apos; fill=&apos;%23D4AF37&apos; text-anchor=&apos;middle&apos;%3EE%3C/text%3E%3C/svg%3E">
-<link rel="canonical" href="https://www.elyssschool.co.ke/">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Elyss School — Book a free visit">
-<meta property="og:description" content="CBE learning from Playgroup to Grade 6 in Thogoto, Kikuyu. Safe transport. Teachers who know your child. Call or WhatsApp 0711 650 405.">
-<meta property="og:locale" content="en_KE">
-<meta property="og:image" content="assets/img/mashujaa-poster.jpg">
-
+<title>Elyss School · Book a Free Visit</title>
+<meta name="description" content="Elyss School, Thogoto: CBE from Playgroup to Grade 6, plus Junior School. Book a free school visit and get the fees for your child’s class.">
+<meta property="og:title" content="Elyss School · Book a Free Visit">
+<meta property="og:description" content="Elyss School, Thogoto: CBE from Playgroup to Grade 6, plus Junior School. Book a free school visit and get the fees for your child’s class.">
+<meta property="og:image" content="images/logo.png">
+<meta name="theme-color" content="#1D3A70">
+<link rel="icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/landing.css">
+<style>
+  :root {
+    --brand: #1D3A70; --brand-ink: #152B55; --on-brand: #fff;
+    --accent: #EDB52D; --accent-ink: #0B7FB5; --on-accent: #152B55;
+    --soft: #EEF5FC; --hero-bg: linear-gradient(180deg, #EAF3FC 0, #F7FAFE 100%);
+    --text: #1b2540; --muted: #4a5675; --foot-bg: #1D3A70;
+    --brandbar: linear-gradient(90deg, #E31E24 0 20%, #F08A1D 20% 40%, #EDB52D 40% 60%, #6BB843 60% 80%, #0E9BD8 80%);
+    --font-head: "Montserrat", system-ui, sans-serif; --font-body: "Montserrat", system-ui, sans-serif;
+  }
+  .lp-hero h1 { font-weight: 900; color: var(--brand); }
+</style>
+<script>
+  window.LANDING = {
+    school: "Elyss School",
+    phone: "0711 650 405",
+    whatsapp: "254711650405",
+    waIntro: "Hello Elyss School, I have just sent my details on your website and would like to book a visit.",
+    formEndpoint: "",          // optional: also copy each enquiry to a Google Sheet / Privyr webhook (Netlify Forms already stores them)
+    metaPixelId: "",           // paste the school's Meta Pixel ID here (same ID on index.html and thank-you.html)
+    thankYouUrl: "thank-you.html",
+    campaign: "ELYSS_LEAD_LP_Admissions_PROS_OCT26"
+  };
+</script>
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- ============================================================
-     ANNOUNCEMENT BAR
-     Open Day confirmed for Saturday 14 November 2026; the link goes
-     to the Open Day registration site. Remove after the event.
-     ============================================================ -->
-<div class="announce" id="announce" hidden>
-  <p>
-    <span class="announce__tag">Open Day</span>
-    Lusigetti Campus &middot; <strong>Saturday 14 November</strong> &middot;
-    <a href="https://elyss-open-day.netlify.app/?utm_source=elyss-school&amp;utm_medium=announce-bar">Register your slot</a>
-  </p>
-  <button class="announce__close" type="button" aria-label="Dismiss announcement">&times;</button>
-</div>
-
-<header class="site-header" id="siteHeader">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="#top" aria-label="Elyss School, home">
-      <img class="brand__logo" src="assets/img/logo.png" alt="" width="66" height="48">
-      <span class="brand__text">
-        <strong>Elyss School</strong>
-        <small>For a firm foundation</small>
-      </span>
+<body class="lp">
+<div class="brandbar" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brandmark" href="#top" aria-label="Elyss School home">
+      <img src="images/logo.png" alt="Elyss School, For a Firm Foundation" width="66" height="48">
+      <span class="name">Elyss School<small>For a Firm Foundation</small></span>
     </a>
-
-    <nav class="nav" id="nav" aria-label="Main">
-      <ul>
-        <li><a href="#questions">Your questions</a></li>
-        <li><a href="#offer">What your child gets</a></li>
-        <li><a href="#visit">Visit us</a></li>
-        <li><a href="#book">Book a visit</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a class="btn btn--gold btn--sm" href="#book">Book a free visit</a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <div class="top-actions"><a class="top-phone" data-contact="tel"></a></div>
   </div>
 </header>
 
-<main id="main">
-
-<!-- ========== 1. HERO — one promise, one action ========== -->
-<section class="hero" id="top">
-  <div class="wrap hero__inner">
-    <div class="hero__copy">
-      <p class="eyebrow">Playgroup to Grade 6 &middot; Junior School &middot; Thogoto &amp; Lusigetti</p>
-      <h1>A school that knows your child <em>by name</em>.</h1>
-      <p class="lede">
-        CBE learning, safe transport, and teachers who notice how your child is doing.
-        Come and see the school for yourself &mdash; visits are free.
-      </p>
-
-      <div class="hero__cta">
-        <a class="btn btn--gold btn--lg" href="#book">Book your free visit</a>
-        <a class="btn btn--whatsapp btn--lg" href="https://wa.me/254711650405?text=Hi%20Elyss%20School%2C%20I%27d%20like%20to%20book%20a%20visit." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4m-3.3 4c-.2 0-.5 0-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.2.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7s1.5-.6 1.7-1.2.2-1.1.2-1.2c-.1-.2-.3-.2-.6-.4l-2-1c-.3-.1-.5-.2-.7.1l-.9 1.2c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4 0-.6.2-.8l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.6l-.9-2.2c-.2-.5-.4-.5-.6-.5z"/></svg>
-          WhatsApp us
-        </a>
-      </div>
-
-      <p class="hero__reassure">Free visit &middot; No obligation &middot; We reply the same day</p>
+<main id="top">
+  <section class="lp-hero">
+    <div class="wrap">
+      <span class="eyebrow">Admissions open &middot; Thogoto &amp; Lusigetti</span>
+      <h1>Book a free school visit</h1>
+      <p>Leave your details and we’ll call or WhatsApp you with the fees for your child’s class and a visit date.</p>
     </div>
+  </section>
 
-    <div class="hero__media">
-      <!-- PHOTO SLOT 1 — replace with a real photo: happy learners at Thogoto -->
-      <figure class="photo photo--hero" data-photo="Photo — learners in class at Thogoto"></figure>
+  <section class="lp-form" id="register">
+    <div class="wrap">
+      <div class="form-card">
+        <form name="elyss-enquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="website" data-register novalidate>
+          <input type="hidden" name="form-name" value="elyss-enquiry">
+          <input type="hidden" name="campaign">
+          <input type="hidden" name="page_url">
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="fbclid">
+          <div class="fgrid">
+            <div class="field full">
+              <label for="parent_name">Parent / guardian name *</label>
+              <input id="parent_name" name="parent_name" type="text" autocomplete="name" required data-summary="Parent">
+              <div class="err">Please tell us your name.</div>
+            </div>
+            <div class="field full">
+              <label for="phone">Phone (WhatsApp) *</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07XX XXX XXX" required data-summary="Phone">
+              <div class="err">Please enter a valid phone number.</div>
+            </div>
+            <div class="field">
+              <label for="grade">Child’s class *</label>
+              <select id="grade" name="grade" required data-summary="Class"><option value="">Choose a class</option><optgroup label="Early Years"><option>Playgroup</option><option>PP1</option><option>PP2</option></optgroup><optgroup label="Primary"><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option></optgroup><optgroup label="Junior School"><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option></optgroup><option>Not sure yet, please advise</option></select>
+              <div class="err">Please choose a class.</div>
+            </div>
+            <div class="field">
+              <label for="visit_date">Preferred visit date <span class="opt">(optional)</span></label>
+              <input id="visit_date" name="visit_date" type="date" data-summary="Visit date">
+            </div>
+            <div class="field">
+              <label for="campus">Campus</label>
+              <select id="campus" name="campus" data-summary="Campus"><option>Not sure yet</option><option>Thogoto</option><option>Lusigetti</option></select>
+            </div>
+            <div class="field full">
+              <label for="area">Estate / area <span class="opt">(optional)</span></label>
+              <input id="area" name="area" type="text" data-summary="Area">
+            </div>
+            <div class="field full">
+              <label for="notes">Questions for us? <span class="opt">(optional)</span></label>
+              <textarea id="notes" name="notes" rows="2"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="field full">
+              <label class="consent"><input type="checkbox" name="consent" value="yes" required> <span>I’m happy for Elyss School to contact me by phone, SMS or WhatsApp.</span></label>
+              <div class="err">Please tick this so we can get back to you.</div>
+            </div>
+            <div class="full">
+              <button class="btn btn-primary" type="submit">Book my free visit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <ul class="lp-trust"><li>Free visit</li><li>No obligation</li><li>Reply within 1 working day</li></ul>
     </div>
-  </div>
-</section>
-
-<!-- ========== 2. QUICK TRUST ========== -->
-<section class="trustbar" aria-label="At a glance">
-  <div class="wrap trustbar__grid">
-    <div><strong>CBE curriculum</strong><span>Playgroup to Grade 6</span></div>
-    <div><strong>Safe transport</strong><span>NTSA-approved vehicles</span></div>
-    <div><strong>Small classes</strong><span>Every child is known</span></div>
-  </div>
-</section>
-
-<!-- ========== MASHUJAA DAY greeting (seasonal: remove after October) ========== -->
-<section class="mashujaa" aria-labelledby="mashujaaTitle">
-  <div class="wrap mashujaa__inner">
-    <figure class="mashujaa__photo">
-      <img src="assets/img/mashujaa.jpg" alt="Statue of freedom fighters raising the Kenyan flag" width="876" height="519" loading="lazy">
-    </figure>
-    <div class="mashujaa__copy">
-      <p class="mashujaa__pre">Happy</p>
-      <h2 id="mashujaaTitle">Mashujaa Day</h2>
-      <div class="mashujaa__flag" aria-hidden="true"><i></i><i></i><i></i></div>
-      <p>Today we honour the heroes who laid Kenya&rsquo;s foundation, and nurture the learners who will <strong>build on it with courage.</strong></p>
-      <a class="btn btn--gold" href="#book">Book your free visit</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 3. CONSIDERATION — answer the real questions ========== -->
-<section class="section" id="questions">
-  <div class="wrap wrap--narrow">
-    <header class="section__head section__head--center">
-      <p class="eyebrow">Before you decide</p>
-      <h2>What parents ask us first.</h2>
-    </header>
-
-    <div class="qa">
-      <article class="qa__item">
-        <h3>&ldquo;Is it really CBE?&rdquo;</h3>
-        <p>
-          Yes. We follow Kenya&rsquo;s CBE from Playgroup to Grade 6. Your child learns by
-          doing &mdash; play, projects and hands-on work &mdash; not just books.
-        </p>
-      </article>
-
-      <article class="qa__item">
-        <h3>&ldquo;How much are the fees?&rdquo;</h3>
-        <p>
-          Fees depend on your child&rsquo;s class and whether you need transport.
-          Tell us the class and we&rsquo;ll send you a clear breakdown &mdash; no surprises later.
-        </p>
-      </article>
-
-      <article class="qa__item">
-        <h3>&ldquo;Do you offer transport?&rdquo;</h3>
-        <p>
-          Yes. NTSA-approved vehicles and certified drivers, on a route planned around your
-          estate. Tell us where you live and we&rsquo;ll confirm your pick-up time.
-        </p>
-      </article>
-
-      <article class="qa__item">
-        <h3>&ldquo;Can I see the school first?&rdquo;</h3>
-        <p>
-          Please do. Pick a day that suits you, walk through the classrooms and meet the
-          teachers. No booking fee, no pressure.
-        </p>
-      </article>
-    </div>
-
-    <p class="qa__cta">
-      Still have a question?
-      <a href="https://wa.me/254711650405?text=Hi%20Elyss%20School%2C%20I%20have%20a%20question." target="_blank" rel="noopener">Ask us on WhatsApp</a>
-      or call <a href="tel:+254711650405">0711 650 405</a>.
-    </p>
-  </div>
-</section>
-
-<!-- ========== 4. WHAT YOUR CHILD GETS ========== -->
-<section class="section section--paper" id="offer">
-  <div class="wrap">
-    <header class="section__head section__head--center">
-      <p class="eyebrow">What your child gets</p>
-      <h2>Three things you will notice at home.</h2>
-    </header>
-
-    <div class="cards cards--3">
-      <article class="card">
-        <span class="card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 8-4v6h2V8zM6 13.2V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3z"/></svg>
-        </span>
-        <h3>Strong basics</h3>
-        <p>Reading, writing and maths taught properly &mdash; at a pace your child can follow.</p>
-      </article>
-
-      <article class="card">
-        <span class="card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m1 3v3h14V6zm0 5v3h6v-3zm8 0v3h6v-3zm-8 5v3h6v-3zm8 0v3h6v-3z"/></svg>
-        </span>
-        <h3>Mental maths with Abacus</h3>
-        <p>Your child learns to work out sums in their head. Confidence grows fast.</p>
-      </article>
-
-      <article class="card">
-        <span class="card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0 0 20 2.6 2.6 0 0 0 2.6-2.6c0-.7-.3-1.3-.7-1.7a2.5 2.5 0 0 1 1.8-4.3H18a4 4 0 0 0 4-4c0-4.1-4.5-7.4-10-7.4M6.5 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m3.5 2.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg>
-        </span>
-        <h3>Learning by doing</h3>
-        <p>Art, projects and practical work. Your child makes things &mdash; and explains how.</p>
-      </article>
-    </div>
-
-    <p class="offer__note">
-      All of it in a Christian school where your child is known by name, not by a number.
-    </p>
-  </div>
-</section>
-
-<!-- ========== 5. CONVERSION PUSH — the visit ========== -->
-<section class="cta-band" id="visit">
-  <div class="wrap cta-band__inner">
-    <div class="cta-band__copy">
-      <p class="eyebrow eyebrow--light">One visit is enough</p>
-      <h2>Come and see it for yourself.</h2>
-      <p>
-        Most parents decide after one visit. In one morning you will see the classrooms,
-        meet the teachers, and leave with your fee breakdown in hand.
-      </p>
-      <ul class="ticks ticks--light">
-        <li>Walk through the classrooms</li>
-        <li>Meet the teachers who will teach your child</li>
-        <li>Get your fees and transport route confirmed</li>
-      </ul>
-      <div class="cta-band__actions">
-        <a class="btn btn--gold btn--lg" href="#book">Book your free visit</a>
-        <a class="btn btn--outline btn--lg" href="tel:+254711650405">Call 0711 650 405</a>
-      </div>
-    </div>
-
-    <!-- PHOTO SLOT 2 — replace with a real photo: parents on a campus tour -->
-    <figure class="photo photo--visit" data-photo="Photo — parents visiting the school"></figure>
-  </div>
-</section>
-
-<!-- ========== 6. HOW TO JOIN — 3 simple steps ========== -->
-<section class="section" id="join">
-  <div class="wrap wrap--narrow">
-    <header class="section__head section__head--center">
-      <p class="eyebrow">Joining is simple</p>
-      <h2>Three steps, and your child has a place.</h2>
-    </header>
-
-    <ol class="steps">
-      <li class="step">
-        <span class="step__n">1</span>
-        <div>
-          <h3>Send us your details</h3>
-          <p>Your name, your number and your child&rsquo;s class. That&rsquo;s all we need to start.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step__n">2</span>
-        <div>
-          <h3>Visit the school</h3>
-          <p>Come on a day that suits you. We&rsquo;ll show you around and answer everything.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step__n">3</span>
-        <div>
-          <h3>Secure the place</h3>
-          <p>Fill the admission form and we&rsquo;ll confirm your start date and transport route.</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ========== 7. SHORT FAQ ========== -->
-<section class="section section--paper" id="faq">
-  <div class="wrap wrap--narrow">
-    <header class="section__head section__head--center">
-      <p class="eyebrow">Quick answers</p>
-      <h2>A few more things parents ask.</h2>
-    </header>
-
-    <div class="faq" id="faqList">
-      <div class="faq__item">
-        <h3><button type="button" class="faq__q" aria-expanded="false">Which classes are you admitting?<span class="faq__chev" aria-hidden="true"></span></button></h3>
-        <div class="faq__a" hidden>
-          <p>Playgroup through to Grade 6, plus Junior School at our Thogoto campus. Tell us your child&rsquo;s class and we&rsquo;ll confirm the current intake.</p>
-        </div>
-      </div>
-
-      <div class="faq__item">
-        <h3><button type="button" class="faq__q" aria-expanded="false">Will my child be ready for the next stage?<span class="faq__chev" aria-hidden="true"></span></button></h3>
-        <div class="faq__a" hidden>
-          <p>Yes. Our programme grows with your child step by step, so moving up to primary and later Junior School feels natural, not rushed.</p>
-        </div>
-      </div>
-
-      <div class="faq__item">
-        <h3><button type="button" class="faq__q" aria-expanded="false">Where exactly are you?<span class="faq__chev" aria-hidden="true"></span></button></h3>
-        <div class="faq__a" hidden>
-          <p>Along Kikuyu Road in Thogoto, Kikuyu, Kiambu County. <a href="https://maps.app.goo.gl/hpA1GRRHoaXCGrRq8?g_st=aw" target="_blank" rel="noopener">Open the map pin</a> &mdash; or call <a href="tel:+254711650405">0711 650 405</a> for directions.</p>
-        </div>
-      </div>
-
-      <div class="faq__item">
-        <h3><button type="button" class="faq__q" aria-expanded="false">What happens after I send my details?<span class="faq__chev" aria-hidden="true"></span></button></h3>
-        <div class="faq__a" hidden>
-          <p>We call or WhatsApp you within one working day with your fee breakdown and two visit dates to choose from. Nothing to pay to enquire.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 8. CONVERSION — the form ========== -->
-<section class="section section--navy" id="book">
-  <div class="wrap book">
-    <div class="book__copy">
-      <p class="eyebrow eyebrow--light">Book your visit</p>
-      <h2>Get your fee breakdown and a visit date.</h2>
-      <p>Fill in four boxes. We&rsquo;ll do the rest.</p>
-
-      <ul class="contact-list">
-        <li>
-          <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg></span>
-          <div><strong>Call or WhatsApp</strong><a href="tel:+254711650405">0711 650 405</a></div>
-        </li>
-        <li>
-          <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7m0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5"/></svg></span>
-          <div><strong>Find us</strong><a href="https://maps.app.goo.gl/hpA1GRRHoaXCGrRq8?g_st=aw" target="_blank" rel="noopener">Kikuyu Road, Thogoto, Kikuyu</a></div>
-        </li>
-      </ul>
-    </div>
-
-    <!--
-      FORM BEHAVIOUR: on Netlify (data-netlify) every enquiry is stored in
-      Netlify Forms, then the parent can continue on WhatsApp. If Netlify is
-      unreachable it falls back to a pre-filled WhatsApp message to
-      0711 650 405. Set data-endpoint to post JSON elsewhere instead — see README.
-    -->
-    <form class="form" id="inquiryForm" name="elyss-enquiry" method="POST" action="/" data-netlify="true" netlify-honeypot="website" data-endpoint="" novalidate>
-      <input type="hidden" name="form-name" value="elyss-enquiry">
-      <div class="field">
-        <label for="parentName">Your name</label>
-        <input id="parentName" name="parentName" type="text" autocomplete="name" required>
-      </div>
-
-      <div class="field">
-        <label for="phone">Phone or WhatsApp number</label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07XX XXX XXX" required>
-      </div>
-
-      <div class="field">
-        <label for="childClass">Your child&rsquo;s age or class</label>
-        <input id="childClass" name="childClass" type="text" placeholder="e.g. 5 years, or Grade 2" required>
-      </div>
-
-      <div class="field">
-        <label for="campus">Which campus?</label>
-        <select id="campus" name="campus">
-          <option value="Not sure yet">Not sure yet</option>
-          <option value="Thogoto">Thogoto</option>
-          <option value="Lusigetti">Lusigetti</option>
-        </select>
-      </div>
-
-      <!-- honeypot -->
-      <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-
-      <button class="btn btn--gold btn--block btn--lg" type="submit">Send my details</button>
-      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-      <p class="form__legal">We reply within one working day. Nothing to pay to enquire.</p>
-    </form>
-  </div>
-</section>
-
+  </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap site-footer__inner">
-    <a class="brand brand--light" href="#top">
-      <span class="brand__mark" aria-hidden="true">E</span>
-      <span class="brand__text"><strong>Elyss School</strong><small>Christian Learning Centre</small></span>
-    </a>
-    <p class="site-footer__where">Kikuyu Road, Thogoto, Kikuyu, Kiambu County</p>
-    <p class="site-footer__links">
-      <a href="tel:+254711650405">0711 650 405</a> &middot;
-      <a href="mailto:info@elyssschool.co.ke">info@elyssschool.co.ke</a> &middot;
-      <a href="https://www.facebook.com/elyss.school" target="_blank" rel="noopener">Facebook</a> &middot;
-      <a href="https://www.instagram.com/elyss.school" target="_blank" rel="noopener">Instagram</a>
-    </p>
-    <p class="site-footer__base">&copy; <span id="year">2026</span> Elyss School &middot; Admissions open</p>
-  </div>
+<footer class="foot-mini">
+  <p>Kikuyu Road, Thogoto, Kikuyu &middot; <a href="https://maps.app.goo.gl/hpA1GRRHoaXCGrRq8?g_st=aw" target="_blank" rel="noopener">Map</a></p><p><a href="mailto:info@elyssschool.co.ke">info@elyssschool.co.ke</a></p><p>Call / WhatsApp <a data-contact="tel"></a></p>
+  <p>© <span data-year></span> Elyss School &middot; For a Firm Foundation</p>
 </footer>
 
-<!-- Persistent mobile call/WhatsApp bar -->
-<div class="mobile-cta" aria-label="Quick contact">
-  <a href="tel:+254711650405">Call 0711 650 405</a>
-  <a class="mobile-cta__wa" href="https://wa.me/254711650405?text=Hi%20Elyss%20School%2C%20I%27d%20like%20to%20book%20a%20visit." target="_blank" rel="noopener">WhatsApp</a>
-</div>
-
-<script src="assets/js/main.js" defer></script>
+<script src="assets/landing.js"></script>
 </body>
 </html>
