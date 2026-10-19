@@ -169,6 +169,17 @@ update back within 24–48 hours (Follow-Up Guide, Steps 1–3).
 
 ---
 
+## Netlify deploy & Mashujaa Day
+
+- `netlify.toml` publishes the repo root with no build step. The form is a Netlify form
+  (`elyss-enquiry`): enable **Forms → form detection** and redeploy so Netlify registers it.
+  Each enquiry is stored in Netlify, then the parent is offered a WhatsApp link; if Netlify
+  can't be reached they get the pre-filled WhatsApp link instead.
+- A seasonal **Mashujaa Day** section sits under the trust bar (artwork and logo from the
+  school's poster, in `assets/img/`). Delete it after October.
+- The Open Day bar now reads 21–30 October, matching the Open Day registration site
+  (20 Oct is Mashujaa Day, a public holiday). Still to be confirmed by the school.
+
 ## Built-in behaviour
 
 - Sticky header, mobile dropdown nav, permanent Call / WhatsApp bar on phones

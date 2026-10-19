@@ -13,6 +13,7 @@
 <meta property="og:title" content="Elyss School — Book a free visit">
 <meta property="og:description" content="CBE learning from Playgroup to Grade 6 in Thogoto, Kikuyu. Safe transport. Teachers who know your child. Call or WhatsApp 0711 650 405.">
 <meta property="og:locale" content="en_KE">
+<meta property="og:image" content="assets/img/mashujaa-poster.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +32,7 @@
 <div class="announce" id="announce" hidden>
   <p>
     <span class="announce__tag">Open Day</span>
-    Lusigetti Campus &middot; <strong>19&ndash;30 October</strong> &middot;
+    Lusigetti Campus &middot; <strong>21&ndash;30 October</strong> &middot;
     <a href="#book">Book your slot</a>
   </p>
   <button class="announce__close" type="button" aria-label="Dismiss announcement">&times;</button>
@@ -40,10 +41,10 @@
 <header class="site-header" id="siteHeader">
   <div class="wrap site-header__inner">
     <a class="brand" href="#top" aria-label="Elyss School, home">
-      <span class="brand__mark" aria-hidden="true">E</span>
+      <img class="brand__logo" src="assets/img/logo.png" alt="" width="66" height="48">
       <span class="brand__text">
         <strong>Elyss School</strong>
-        <small>Thogoto &middot; Kikuyu</small>
+        <small>For a firm foundation</small>
       </span>
     </a>
 
@@ -102,6 +103,22 @@
     <div><strong>CBE curriculum</strong><span>Playgroup to Grade 6</span></div>
     <div><strong>Safe transport</strong><span>NTSA-approved vehicles</span></div>
     <div><strong>Small classes</strong><span>Every child is known</span></div>
+  </div>
+</section>
+
+<!-- ========== MASHUJAA DAY greeting (seasonal: remove after October) ========== -->
+<section class="mashujaa" aria-labelledby="mashujaaTitle">
+  <div class="wrap mashujaa__inner">
+    <figure class="mashujaa__photo">
+      <img src="assets/img/mashujaa.jpg" alt="Statue of freedom fighters raising the Kenyan flag" width="876" height="519" loading="lazy">
+    </figure>
+    <div class="mashujaa__copy">
+      <p class="mashujaa__pre">Happy</p>
+      <h2 id="mashujaaTitle">Mashujaa Day</h2>
+      <div class="mashujaa__flag" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p>Today we honour the heroes who laid Kenya&rsquo;s foundation, and nurture the learners who will <strong>build on it with courage.</strong></p>
+      <a class="btn btn--gold" href="#book">Book your free visit</a>
+    </div>
   </div>
 </section>
 
@@ -316,11 +333,13 @@
     </div>
 
     <!--
-      FORM BEHAVIOUR: with no backend configured, this opens a pre-filled
-      WhatsApp message to 0711 650 405. To capture leads directly, set
-      data-endpoint on the <form> — see README.
+      FORM BEHAVIOUR: on Netlify (data-netlify) every enquiry is stored in
+      Netlify Forms, then the parent can continue on WhatsApp. If Netlify is
+      unreachable it falls back to a pre-filled WhatsApp message to
+      0711 650 405. Set data-endpoint to post JSON elsewhere instead — see README.
     -->
-    <form class="form" id="inquiryForm" data-endpoint="" novalidate>
+    <form class="form" id="inquiryForm" name="elyss-enquiry" method="POST" action="/" data-netlify="true" netlify-honeypot="website" data-endpoint="" novalidate>
+      <input type="hidden" name="form-name" value="elyss-enquiry">
       <div class="field">
         <label for="parentName">Your name</label>
         <input id="parentName" name="parentName" type="text" autocomplete="name" required>

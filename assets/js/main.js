@@ -159,6 +159,15 @@
     status.className = 'form__status' + (kind ? ' is-' + kind : '');
   };
 
+  var setStatusLink = function (msg, linkText, href, kind) {
+    if (!status) return;
+    setStatus(msg, kind);
+    var link = document.createElement('a');
+    link.href = href; link.target = '_blank'; link.rel = 'noopener';
+    link.textContent = linkText;
+    status.appendChild(link);
+  };
+
   var clearError = function (field) {
     field.removeAttribute('aria-invalid');
     var existing = field.parentElement.querySelector('.err');
@@ -246,10 +255,35 @@
     var endpoint = form.getAttribute('data-endpoint');
     var submitBtn = form.querySelector('button[type="submit"]');
 
+    var whatsappUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(buildWhatsAppText(data));
+
+    // Hosted on Netlify → store the enquiry in Netlify Forms, then offer WhatsApp.
+    if (!endpoint && form.hasAttribute('data-netlify')) {
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      setStatus('Sending…');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed: ' + res.status);
+          form.reset();
+          setStatusLink('Thank you — we will call or WhatsApp you within one working day. ', 'Chat with us on WhatsApp now', whatsappUrl, 'ok');
+        })
+        .catch(function () {
+          // Opening a window after an async call is popup-blocked, so offer a link instead.
+          setStatusLink('That did not go through. ', 'Send your details on WhatsApp instead', whatsappUrl, 'err');
+        })
+        .finally(function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send my details'; }
+        });
+      return;
+    }
+
     // No endpoint configured → hand the inquiry to WhatsApp, pre-filled.
     if (!endpoint) {
-      var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(buildWhatsAppText(data));
-      window.open(url, '_blank', 'noopener');
+      window.open(whatsappUrl, '_blank', 'noopener');
       setStatus('Opening WhatsApp with your details — just press send.', 'ok');
       return;
     }
