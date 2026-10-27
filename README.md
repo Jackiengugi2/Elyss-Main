@@ -19,11 +19,23 @@ netlify.toml        publish settings
 |---|---|
 | `phone` / `whatsapp` | 0711 650 405 / 254711650405 |
 | `campaign` | `ELYSS_LEAD_LP_Admissions_PROS_OCT26` (playbook naming: CLIENT_OBJ_DEST_SEGMENT_LAYER_MMMYY) |
-| `metaPixelId` | empty: add the Pixel ID on both pages |
+| GTM container | `GTM-M7XNWV3Q` (snippet in `<head>` and right after `<body>` on both pages) |
+| `metaPixelId` | empty: add the Pixel ID on both pages | (or load the Pixel through GTM instead, not both) |
 | `formEndpoint` | optional extra webhook (Privyr / Google Sheet) |
 
 Ad links should carry `utm_source=meta&utm_campaign=<Ads Manager name>`; the form saves
 every `utm_*` value and `fbclid` with the enquiry.
+
+## GTM dataLayer events
+
+| Event | When | Extra fields |
+|---|---|---|
+| `form_start` | first interaction with the form | `form_name`, `campaign`, `school` |
+| `form_submit` | Netlify accepted the enquiry (form page) | `form_name`, `grade`, `campaign`, `school` |
+| `generate_lead` | thank-you page, once per enquiry | `form_name`, `grade`, `campaign`, `school` |
+
+Use `generate_lead` (or a Page View trigger on `/thank-you.html`) for the Meta Pixel `Lead`
+and any conversion tag.
 
 ## Netlify
 

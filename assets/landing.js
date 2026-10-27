@@ -67,6 +67,17 @@
   }
   function track(event, data) { if (window.fbq) window.fbq('track', event, data || {}); }
 
+  /* ---------- GTM dataLayer events (triggers for tags configured in GTM) ----------
+     form_start     first interaction with the form
+     form_submit    enquiry accepted by Netlify (fires on the form page)
+     generate_lead  thank-you page, once per enquiry (use this for conversion tags) */
+  window.dataLayer = window.dataLayer || [];
+  function dl(event, data) {
+    var payload = { event: event, campaign: C.campaign || '', school: C.school || '' };
+    for (var k in data) payload[k] = data[k];
+    window.dataLayer.push(payload);
+  }
+
   /* ---------- Campaign attribution ---------- */
   var params = new URLSearchParams(location.search);
   var utm = store(UTM_KEY) || {};
@@ -81,6 +92,7 @@
       all('[data-wa-continue]').forEach(function (a) { if (lead.wa) a.href = lead.wa; else a.hidden = true; });
       if (!lead.tracked) {
         track('Lead', { content_name: C.campaign });
+        dl('generate_lead', { form_name: lead.form || '', grade: lead.grade || '' });
         lead.tracked = true;
         store(LEAD_KEY, lead);
       }
@@ -130,7 +142,11 @@
 
     var started = false;
     form.addEventListener('focusin', function () {
-      if (!started) { started = true; track('InitiateCheckout', { content_name: C.campaign }); }
+      if (!started) {
+        started = true;
+        track('InitiateCheckout', { content_name: C.campaign });
+        dl('form_start', { form_name: form.getAttribute('name') || '' });
+      }
     });
 
     form.addEventListener('submit', function (e) {
@@ -145,7 +161,8 @@
       if (firstBad) { firstBad.focus(); return; }
 
       var name = (form.elements.parent_name && form.elements.parent_name.value.trim().split(/\s+/)[0]) || '';
-      var record = { name: name, wa: whatsappLink(form), tracked: false };
+      var record = { name: name, wa: whatsappLink(form), tracked: false,
+        form: form.getAttribute('name') || '', grade: (form.elements.grade && form.elements.grade.value) || '' };
 
       // Bots fill the honeypot; show them success and send nothing.
       if (form.elements.website && form.elements.website.value) { done(record); return; }
@@ -162,7 +179,11 @@
         : Promise.resolve(false);
 
       Promise.all([netlify.catch(function () { return false; }), extra]).then(function (res) {
-        if (res[0] || res[1]) { done(record); return; }
+        if (res[0] || res[1]) {
+          dl('form_submit', { form_name: record.form, grade: record.grade });
+          done(record);
+          return;
+        }
         if (button) { button.disabled = false; button.textContent = buttonText; }
         showError(form, record.wa);
       });
@@ -174,6 +195,7 @@
       record.tracked = true;
       store(LEAD_KEY, record);
       track('Lead', { content_name: C.campaign });
+      dl('generate_lead', { form_name: record.form, grade: record.grade });
       all('[data-thanks-name]', card).forEach(function (el) { el.textContent = record.name ? ', ' + record.name : ''; });
       all('[data-wa-continue]', card).forEach(function (a) { if (record.wa) a.href = record.wa; else a.hidden = true; });
       card.classList.add('sent');
